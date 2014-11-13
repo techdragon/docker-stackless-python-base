@@ -1,6 +1,5 @@
 FROM ubuntu
 
-RUN apt-get update && apt-get install -y curl git-core
-WORKDIR /opt
-RUN git clone https://github.com/yyuu/pyenv.git
-RUN ["/bin/bash", "-c", "/opt/pyenv/bin/pyenv install --list"]
+RUN apt-get update && apt-get install -y curl git-core python
+RUN ["/bin/bash", "-c", "curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash"]
+RUN ["/bin/bash", "-c", "/root/.pyenv/bin/pyenv install --list"]
